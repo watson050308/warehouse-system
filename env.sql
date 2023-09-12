@@ -1,5 +1,3 @@
---DDL
-
 CREATE TABLE PRODUCT_MANAGE
 (
     Product_ID char(5) NOT NULL,
@@ -55,29 +53,6 @@ ADD PRIMARY KEY (User_ID);
 ALTER TABLE ACCOUNT_MANAGE
 ADD PRIMARY KEY (User_ID);
 
-ALTER TABLE ACCOUNT_MANAGE
+ALTER TABLE ORDER_MANAGE
 ADD PRIMARY KEY (Order_ID, User_ID, Product_ID);
 
---DML
-
-INSERT INTO PRODUCT_MANAGE
-(
-    Product_ID,
-    Product_Name,
-    Product_Count,
-    Product_Price,
-    Product_Unit,
-    Product_Type,
-    Product_State
-)
-VALUES
-(
-    1,
-    "格子脆薯",
-    10,
-    200,
-    "2",
-    "4",
-    "0"
-)
-;
