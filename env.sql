@@ -1,9 +1,11 @@
 CREATE DATABASE warehouse_db;
 
-CREATE TABLE warehouse_db.PRODUCT_MANAGE
+CREATE DATABASE warehouse_db;
+
+CREATE TABLE PRODUCT_MANAGE
 (
-    Product_ID char(5) NOT NULL,
-    Product_Name nvarchar(20) NOT NULL,
+    Product_ID char(4) NOT NULL,
+    Product_Name nvarchar(50) NOT NULL,
     Product_Desc nvarchar(50),
     Product_Count int NOT NULL,
     Product_Price int NOT NULL,
@@ -15,26 +17,35 @@ CREATE TABLE warehouse_db.PRODUCT_MANAGE
 )
 ;
 
-CREATE TABLE warehouse_db.MEMBER_MANAGE
+CREATE TABLE PRODUCT_MAPPING
 (
-    User_ID char(5) NOT NULL,
-    User_Name nvarchar(10),
-    User_Brand char(2),
-    User_Level char(1)
+    Product_Type char(1) NOT NULL,
+    Product_Type_CH nchar(20) NOT NULL
 )
 ;
 
-CREATE TABLE warehouse_db.ACCOUNT_MANAGE
+CREATE TABLE ACCOUNT_MANAGE
 (
     User_ID char(5) NOT NULL,
-    User_Account char(20) NOT NULL,
+    User_Mail char(20) NOT NULL,
     User_Password char(20) NOT NULL,
     User_Auth char(1) NOT NULL,
+    User_Name nvarchar(20) NOT NULL,
+    User_Phone char(10) NOT NULL,
+    Tax_ID char(8),
+    Main_Principal nvarchar(10) NOT NULL,
+    Main_Connector nvarchar(10) NOT NULL,
+    Main_Phone char(10) NOT NULL,
+    Second_Connector nvarchar(10),
+    Second_Phone char(10),
+    User_Addr nvarchar(50),
+    User_Brand char(2) NOT NULL,
+    User_Level char(1),
     User_CreateTime timestamp
 )
 ;
 
-CREATE TABLE warehouse_db.ORDER_MANAGE
+CREATE TABLE ORDER_MANAGE
 (
     Order_ID char(10) NOT NULL,
     User_ID char(5) NOT NULL,
@@ -46,15 +57,14 @@ CREATE TABLE warehouse_db.ORDER_MANAGE
 )
 ;
 
-ALTER TABLE warehouse_db.PRODUCT_MANAGE
+ALTER TABLE PRODUCT_MANAGE
 ADD PRIMARY KEY (Product_ID);
 
-ALTER TABLE warehouse_db.MEMBER_MANAGE
+ALTER TABLE MEMBER_MANAGE
 ADD PRIMARY KEY (User_ID);
 
-ALTER TABLE warehouse_db.ACCOUNT_MANAGE
+ALTER TABLE ACCOUNT_MANAGE
 ADD PRIMARY KEY (User_ID);
 
-ALTER TABLE warehouse_db.ORDER_MANAGE
+ALTER TABLE ORDER_MANAGE
 ADD PRIMARY KEY (Order_ID, User_ID, Product_ID);
-
