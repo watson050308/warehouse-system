@@ -41,7 +41,7 @@ CREATE TABLE warehouse_db.ACCOUNT_MANAGE
     User_Brand char(2) NOT NULL,
     User_Level char(1),
     User_Note nvarchar(50),
-    User_CreateTime timestamp
+    User_CreateTime timestamp,
     User_UpdateTime timestamp
 )
 ;
