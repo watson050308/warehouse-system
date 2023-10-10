@@ -5,12 +5,13 @@ CREATE TABLE warehouse_db.PRODUCT_MANAGE
     Product_ID char(4) NOT NULL,
     Product_Name nvarchar(50) NOT NULL,
     Product_Desc nvarchar(50),
-    Product_Count int NOT NULL,
     Product_Price int NOT NULL,
-    Product_Unit char(1),
-    Product_Type char(1),
-    Product_State char(1),
-    Warehouse_Unit varchar(10),
+    On_Sale_Price int,
+    Cost_Price float NOT NULL,
+    Product_Unit nchar(2) NOT NULL,
+    Product_State nvarchar(10) NOT NULL,
+    Product_Count int NOT NULL,
+    Safety_Count int NOT NULL,
     Delivery_Time nvarchar(10)
 )
 ;
@@ -18,16 +19,16 @@ CREATE TABLE warehouse_db.PRODUCT_MANAGE
 CREATE TABLE warehouse_db.PRODUCT_MAPPING
 (
     Product_Type char(1) NOT NULL,
-    Product_Type_CH nchar(20) NOT NULL
+    Product_Type_CH nchar(2) NOT NULL
 )
 ;
 
 CREATE TABLE warehouse_db.ACCOUNT_MANAGE
 (
     User_ID char(5) NOT NULL,
-    User_Mail char(20) NOT NULL,
+    User_Mail char(100) NOT NULL,
     User_Password char(20) NOT NULL,
-    User_Auth char(1) NOT NULL,
+    User_Auth char(1),
     User_Name nvarchar(20) NOT NULL,
     User_Phone char(10) NOT NULL,
     Tax_ID char(8),
@@ -40,6 +41,13 @@ CREATE TABLE warehouse_db.ACCOUNT_MANAGE
     User_Brand char(2) NOT NULL,
     User_Level char(1),
     User_CreateTime timestamp
+)
+;
+
+CREATE TABLE warehouse_db.USER_BRAND_MAPPING
+(
+    User_Brand char(2) NOT NULL,
+    User_Brand_CH char(10) NOT NULL
 )
 ;
 
