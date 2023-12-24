@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倉儲系統 - 庫存管理</title>
+    <link rel="stylesheet" href="css/inventory.css">
+</head>
+<body>
+    <header>
+        <h1>倉儲系統 - 庫存管理</h1>
+        <a href="index.html" class="back-button">返回倉儲系統</a>
+    </header>
+    <main>
+        <div class="inventory">
+            <table>
+                <thead>
+                    <tr>
+                        <th>品項</th>
+                        <th>價格</th>
+                        <th>數量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-items">
+                    <!-- 這裡用JavaScript填充庫存資料 -->
+                </tbody>
+            </table>
+        </div>
+        <button class="add-button" onclick="showAddItemForm()">新增商品</button>
+        <div id="add-item-form" class="add-item-form">
+            <h2>新增商品</h2>
+            <form id="new-item-form">
+                <label for="item-name">品項名稱:</label>
+                <input type="text" id="item-name" name="item-name" required>
+                <label for="item-price">價格:</label>
+                <input type="number" id="item-price" name="item-price" required>
+                <label for="item-quantity">數量:</label>
+                <input type="number" id="item-quantity" name="item-quantity" required>
+                <button type="submit">確認新增</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/inventory.js"></script>
+</body>
+</html>
