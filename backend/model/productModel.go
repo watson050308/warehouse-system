@@ -6,7 +6,7 @@ import (
 )
 
 type ProductInfo struct {
-	ID           string  `json:"id" gorm:"column:Product_ID"`
+	ID           string  `json:"id" gorm:"column:Product_ID;size:4"`
 	Name         string  `json:"name" gorm:"column:Product_Name"`
 	Desc         string  `json:"desc" gorm:"column:Product_Desc"`
 	Price        int     `json:"price" gorm:"column:Product_Price"`

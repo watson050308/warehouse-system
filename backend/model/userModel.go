@@ -7,19 +7,24 @@ import (
 )
 
 type UserInfo struct {
-	ID        string    `json:"id" gorm:"column:User_ID;size:5"`
-	Mail      string    `json:"mail" gorm:"column:User_Mail"`
-	Password  string    `json:"password" gorm:"column:User_Password"`
-	Auth      string    `json:"auth" gorm:"column:User_Auth"`
-	Name      string    `json:"name" gorm:"column:User_Name"`
-	Phone     string    `json:"phone" gorm:"column:User_Phone"`
-	TaxID     string    `json:"taxid" gorm:"column:Tax_ID"`
-	Principal string    `json:"principal" gorm:"column:Main_Principal"`
-	Connector string    `json:"connector" gorm:"column:Main_Connector"`
-	MainPhone string    `json:"main_phone" gorm:"column:Main_Phone"`
-	Brand     string    `json:"brand" gorm:"column:User_Brand"`
-	CreatedAt time.Time `json:"createTime" gorm:"column:User_CreateTime"`
-	UpdatedAt time.Time `json:"updateTime" gorm:"column:User_UpdateTime"`
+	ID              string    `json:"id" gorm:"column:User_ID;size:5"`
+	Mail            string    `json:"mail" gorm:"column:User_Mail"`
+	Password        string    `json:"password" gorm:"column:User_Password"`
+	Auth            string    `json:"auth" gorm:"column:User_Auth"`
+	Name            string    `json:"name" gorm:"column:User_Name"`
+	Phone           string    `json:"phone" gorm:"column:User_Phone"`
+	TaxID           string    `json:"taxid" gorm:"column:Tax_ID"`
+	Principal       string    `json:"principal" gorm:"column:Main_Principal"`
+	Connector       string    `json:"connector" gorm:"column:Main_Connector"`
+	MainPhone       string    `json:"main_phone" gorm:"column:Main_Phone"`
+	Brand           string    `json:"brand" gorm:"column:User_Brand"`
+	SecondConnector string    `json:"second_connector", gorm:"Second_Connector"`
+	SecondPhone     string    `json:"second_phone", gorm:"Second_Phone"`
+	UserAddr        string    `json:"user_addr", gorm:"User_Addr"`
+	UserLevel       string    `json:"user_level", gorm:"User_Level"`
+	UserNote        string    `json:"user_note", gorm:"User_Note"`
+	CreatedAt       time.Time `json:"createTime" gorm:"column:User_CreateTime"`
+	UpdatedAt       time.Time `json:"updateTime" gorm:"column:User_UpdateTime"`
 }
 
 type UserInfoMapping struct {
