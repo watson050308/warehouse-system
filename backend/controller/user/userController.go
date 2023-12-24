@@ -2,6 +2,7 @@ package userController
 
 import (
 	"fmt"
+	"log"
 	"warehouse/db"
 	"warehouse/model"
 )
@@ -20,7 +21,7 @@ func UserRegister(user model.UserInfo) {
 
 func UserLogin(user model.UserInfo, ip string) {
 	if (user.Mail == "" && user.Phone == "") || user.Password == "" {
-		fmt.Println("not get mail, phone or password")
+		log.Println("not get mail, phone or password")
 		return
 	}
 
@@ -29,7 +30,7 @@ func UserLogin(user model.UserInfo, ip string) {
 	if err := mysql.Where("User_Mail = ? or User_Phone = ? AND User_Password = ?",
 		user.Mail, user.Phone, user.Password).First(&user).Error; err != nil {
 
-		fmt.Println("not get")
+		log.Println("not get")
 		return
 	}
 }
@@ -45,7 +46,7 @@ func GetUser(user *model.UserInfo, id string) {
 	if err := mysql.Where("User_ID = ?",
 		id).Find(&user).Error; err != nil {
 
-		fmt.Println("not get")
+		log.Println("not get")
 		return
 	}
 }
@@ -55,7 +56,7 @@ func GetAllUser(users *[]model.UserInfo) {
 	mysql := db.GetDB()
 	if err := mysql.Select("*").Find(&users); err != nil {
 
-		fmt.Println("not get")
+		log.Println("not get")
 		return
 	}
 }
