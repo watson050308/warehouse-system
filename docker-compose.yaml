@@ -1,15 +1,21 @@
 version: '3'
 services:
-  db:
-    container_name: warehouse_db
+  mysql:
+    container_name: mysql_db
     build:
       context: backend/db
     command: --default-authentication-plugin=mysql_native_password
     environment:
       - "MYSQL_ROOT_PASSWORD=1234"
-    ports:
-      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-uroot", "-p1234"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - warehouse-network
   web:
+    container_name: warehouse_web
     image: nginx
     volumes:
       - ./web:/etc/nginx/html/warehouse
@@ -20,3 +26,25 @@ services:
     environment:
      - NGINX_HOST=localhost
      - NGINX_PORT=80
+
+  backend:
+    container_name: warehouse_backend
+    platform: linux/amd64
+    build:
+      context: ./backend
+    restart: on-failure
+    image:
+      warehouse_be
+    ports:
+      - 8080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+    command:
+      - --mysql_password=1234
+      - --mysql_port=3306
+    networks:
+      - warehouse-network
+
+networks:
+  warehouse-network:

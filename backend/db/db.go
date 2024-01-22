@@ -1,6 +1,7 @@
 package db
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"sync"
@@ -9,12 +10,15 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-var (
+const (
 	UserName string = "root"
-	Password string = "1234"
-	Port     int    = 3306
-	Addr     string = "127.0.0.1"
+	Addr     string = "mysql"
 	Database string = "warehouse_db"
+)
+
+var (
+	MysqlPassword = flag.String("mysql_password", "1234", "database password")
+	MysqlPort     = flag.Int("mysql_port", 3306, "db service port")
 )
 
 var once sync.Once
@@ -33,7 +37,7 @@ func (mysql *MysqlDB) Init() {
 }
 
 func InitDB() *gorm.DB {
-	conn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", UserName, Password, Addr, Port, Database)
+	conn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local", UserName, *MysqlPassword, Addr, *MysqlPort, Database)
 	db, err := gorm.Open("mysql", conn)
 	if err != nil {
 		log.Fatal(err)
