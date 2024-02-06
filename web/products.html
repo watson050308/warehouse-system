@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倉儲系統 - 查詢商品</title>
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <header>
+        <h1>倉儲系統 - 查詢商品</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="products.html">產品</a></li>
+                <li><a href="orders.html">訂單</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="login.html">登入</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="product-search">
+            <h2>查詢商品</h2>
+            <form>
+                <label for="search">查詢:</label>
+                <input type="text" id="search" name="search" required>
+                <button type="submit">搜尋</button>
+            </form>
+        </section>
+        <section class="order-list">
+            <h2>訂單列表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>項目編號</th>
+                        <th>商品名稱</th>
+                        <th>商品價格</th>
+                        <th>商品狀態</th>
+                        <th>商品剩餘數量</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>商品A</td>
+                        <td>$10.99</td>
+                        <td>可用</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>商品B</td>
+                        <td>$15.99</td>
+                        <td>缺貨</td>
+                        <td>0</td>
+                    </tr>
+                    <!-- 在這裡添加更多行來顯示更多商品 -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 倉儲系統</p>
+    </footer>
+</body>
+</html>
