@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倉儲系統 - 訂單頁面</title>
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+    <header>
+        <h1>倉儲系統 - 訂單頁面</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="products.html">產品</a></li>
+                <li><a href="orders.html">訂單</a></li>
+                <li><a href="about.html">關於我們</a></li>
+                <li><a href="login.html">登入</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="order">
+            <h2>訂單</h2>
+            <form>
+                <div class="order-items">
+                    <h3>商品列表</h3>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="item" value="item1">
+                                商品1 - $10.99
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="item" value="item2">
+                                商品2 - $15.99
+                            </label>
+                        </li>
+                        <!-- 在這裡添加更多商品 -->
+                    </ul>
+                </div>
+                <div class="order-details">
+                    <h3>訂單詳情</h3>
+                    <label for="delivery-date">交貨日期:</label>
+                    <input type="date" id="delivery-date" name="delivery-date">
+
+                    <label for="quantity">訂購數量:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+                    <button type="submit">提交訂單</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 倉儲系統</p>
+    </footer>
+</body>
+</html>
